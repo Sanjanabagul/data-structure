@@ -3,37 +3,41 @@
 #define SIZE 10
 using namespace std;
 
+template <class T>
+
 class linearSearch
 {
 
 private:
-    int a[SIZE];
+    T a[SIZE];
 
 public:
     int get();
-    int getKey();
+    T getKey();
     void getArray(int n);
     void putArray(int n);
-    int search(int n, int key);
+    void search(int n, T key);
 };
 
-int linearSearch ::get()
-{
-
-    int p;
-    cin >> p;
-    return p;
-}
-
-int linearSearch ::getKey()
+template <class T>
+int linearSearch<T>::get()
 {
     int p;
     cin >> p;
     return p;
 }
-void linearSearch ::getArray(int n)
-{
 
+template <class T>
+T linearSearch<T>::getKey()
+{
+    T p;
+    cin >> p;
+    return p;
+}
+
+template <class T>
+void linearSearch<T>::getArray(int n)
+{
     cout << "Enter array elements : ";
     for (int i = 0; i < n; i++)
     {
@@ -42,7 +46,8 @@ void linearSearch ::getArray(int n)
     }
 }
 
-void linearSearch ::putArray(int n)
+template <class T>
+void linearSearch<T>::putArray(int n)
 {
     cout << "array elements : ";
     for (int i = 0; i < n; i++)
@@ -52,11 +57,11 @@ void linearSearch ::putArray(int n)
     }
 }
 
-int linearSearch ::search(int n, int key)
+template <class T>
+void linearSearch<T>::search(int n, T key)
 {
     int x = 0;
     int pos[SIZE];
-
     for (int i = 0; i < n; i++)
     {
         if (a[i] == key)
@@ -89,28 +94,17 @@ int linearSearch ::search(int n, int key)
 
 int main()
 {
-    linearSearch l;
-
-    int n, key;
+    linearSearch<char> l;
     cout << "Enter the value of n :";
-    n = l.get();
+    int n = l.get();
     l.getArray(n);
 
     cout << "Enter the key : ";
-    key = l.getKey();
+    char key = l.getKey();
 
     l.putArray(n);
 
-    "\n";
-    int x = l.search(n, key);
-    if (x > 0)
-    {
-        cout << "\n Element is found in the array " << x << " times ";
-    }
-    else
-    {
-        cout << "\nelement is not found";
-    }
+    l.search(n, key);
 
     return 0;
 }

@@ -7,27 +7,27 @@ class linearSearch
 {
 
 private:
-    int a[SIZE];
+    float a[SIZE];
 
 public:
-    int get();
-    int getKey();
+    float get();
+    float getKey();
     void getArray(int n);
     void putArray(int n);
-    int search(int n, int key);
+    float search(int n, float key);
 };
 
-int linearSearch ::get()
+float linearSearch ::get()
 {
 
-    int p;
+    float p;
     cin >> p;
     return p;
 }
 
-int linearSearch ::getKey()
+float linearSearch ::getKey()
 {
-    int p;
+    float p;
     cin >> p;
     return p;
 }
@@ -52,7 +52,7 @@ void linearSearch ::putArray(int n)
     }
 }
 
-int linearSearch ::search(int n, int key)
+float linearSearch ::search(int n, float key)
 {
     int x = 0;
     int pos[SIZE];
@@ -91,7 +91,8 @@ int main()
 {
     linearSearch l;
 
-    int n, key;
+    int n;
+    float key;
     cout << "Enter the value of n :";
     n = l.get();
     l.getArray(n);

@@ -7,33 +7,31 @@ class linearSearch
 {
 
 private:
-    int a[SIZE];
+    char a[SIZE];
 
 public:
     int get();
-    int getKey();
+    char getKey();
     void getArray(int n);
     void putArray(int n);
-    int search(int n, int key);
+    void search(int n, char key);
 };
 
 int linearSearch ::get()
 {
-
     int p;
     cin >> p;
     return p;
 }
 
-int linearSearch ::getKey()
+char linearSearch ::getKey()
 {
-    int p;
+    char p;
     cin >> p;
     return p;
 }
 void linearSearch ::getArray(int n)
 {
-
     cout << "Enter array elements : ";
     for (int i = 0; i < n; i++)
     {
@@ -52,11 +50,10 @@ void linearSearch ::putArray(int n)
     }
 }
 
-int linearSearch ::search(int n, int key)
+void linearSearch ::search(int n, char key)
 {
     int x = 0;
     int pos[SIZE];
-
     for (int i = 0; i < n; i++)
     {
         if (a[i] == key)
@@ -91,7 +88,8 @@ int main()
 {
     linearSearch l;
 
-    int n, key;
+    int n;
+    char key;
     cout << "Enter the value of n :";
     n = l.get();
     l.getArray(n);
@@ -101,16 +99,6 @@ int main()
 
     l.putArray(n);
 
-    "\n";
-    int x = l.search(n, key);
-    if (x > 0)
-    {
-        cout << "\n Element is found in the array " << x << " times ";
-    }
-    else
-    {
-        cout << "\nelement is not found";
-    }
-
+    l.search(n, key);
     return 0;
 }
